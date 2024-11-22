@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网闸状态监控</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Benson的创业状态监控</h1>
+        
+        <!-- 时间单位选择器 -->
+        <div class="time-unit-selector">
+            <label for="timeUnit">时间单位：</label>
+            <select id="timeUnit">
+                <option value="hour">小时</option>
+                <option value="day">天</option>
+                <option value="week">周</option>
+            </select>
+        </div>
+
+        <!-- 图表容器 -->
+        <div class="chart-container">
+            <canvas id="statusChart"></canvas>
+        </div>
+
+        <!-- 行为记录表单 -->
+        <div class="behavior-form">
+            <h2>添加行为记录</h2>
+            <form id="behaviorForm">
+                <div class="form-group">
+                    <label for="direction">方向：</label>
+                    <select id="direction" required>
+                        <option value="prosperity">繁荣方向</option>
+                        <option value="decline">凋零方向</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="value">分数：</label>
+                    <input type="number" id="value" required min="0" step="0.1">
+                </div>
+                <button type="submit">添加记录</button>
+            </form>
+        </div>
+
+        <!-- 预警线设置 -->
+        <div class="warning-line-form">
+            <h2>预警线设置</h2>
+            <form id="warningLineForm">
+                <div class="form-group">
+                    <label for="warningLine">预警分数：</label>
+                    <input type="number" id="warningLine" required min="0" max="100" step="1" value="60">
+                </div>
+                <button type="submit">设置预警线</button>
+            </form>
+        </div>
+
+        <!-- 历史记录显示 -->
+        <div class="history-container">
+            <h2>历史记录</h2>
+            <div id="historyList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
